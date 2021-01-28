@@ -17,15 +17,10 @@ const f = (arr, n = 2) => arr.sort((a, b) => b - a)[n - 1];
  * Runs in linear time, but cannot easily be generalized like `f`.
 **/
 const g = ([first, second, ...rest]) =>
-  rest.reduce(([largest, secondLargest], n) => {
-    if (n > largest) {
-      secondLargest = largest;
-      largest = n;
-    } else if (n > secondLargest) {
-      secondLargest = n;
-    }
-    return [largest, secondLargest];
-  }, [Math.max(first, second), Math.min(first, second)])[1];
+  rest.reduce(([largest, secondLargest], n) =>
+    [Math.max(largest, n), n > largest ? largest : Math.max(secondLargest, n)],
+    [Math.max(first, second), Math.min(first, second)])
+    [1];
 
 // Tests:
 
