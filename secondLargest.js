@@ -1,11 +1,11 @@
-/**
+/***
  * Problem Statement:
  * Given an array, write a function that returns its second-largest element.
 **/
 
- // Here are two solutions in JavaScript, beginning with the more obvious:
+ // Here are my two solutions in JavaScript, beginning with the more obvious:
 
-/**
+/***
   * `f(arr)` sorts the array `arr` descending (i.e., largest first) and returns the second element.
   * This is easily generalized to give the n-th largest element, but the time complexity is
   * dependent on the sort algorithm, which is probably qsort, and definitely not linear.
@@ -13,11 +13,10 @@
 const f = (arr, n = 2) =>
 	arr.sort((a, b) => b - a)[n - 1];
 
-/**
+/***
  * `g(arr)` traverses the array once and keeps track of the `largest` and `secondLargest` elements
  * along the way, returning the the `secondLargest` in linear time, but cannot be generalized liked `f`.
 **/
-
 const g = ([first, second, ...rest]) =>
   rest.reduce(([largest, secondLargest], n) => {
     if (n > largest) {
