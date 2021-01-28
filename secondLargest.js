@@ -14,8 +14,8 @@ const f = (arr, n = 2) =>
 	arr.sort((a, b) => b - a)[n - 1];
 
 /**
-	* `g(arr)` traverses the array once and keeps track of the `largest` and `secondLargest` elements
-  * along the way, returning the the `secondLargest` in linear time, but cannot be generalized liked `f`.
+ * `g(arr)` traverses the array once and keeps track of the `largest` and `secondLargest` elements
+ * along the way, returning the the `secondLargest` in linear time, but cannot be generalized liked `f`.
 **/
 
 const g = ([first, second, ...rest]) =>
@@ -27,7 +27,7 @@ const g = ([first, second, ...rest]) =>
       secondLargest = n;
     }
     return [largest, secondLargest];
-  }, [Math.max(first, second), Math.min(first, second)]);
+  }, [Math.max(first, second), Math.min(first, second)])[1];
 
 // Tests:
 
